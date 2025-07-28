@@ -26,6 +26,11 @@ export default function ProductPage({ params }: PageProps) {
   const [product, setProduct] = useState<ProductData | null>(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
+  const [mounted, setMounted] = useState(false)
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const loadData = async () => {
@@ -46,10 +51,12 @@ export default function ProductPage({ params }: PageProps) {
       }
     }
 
-    loadData()
-  }, [params])
+    if (mounted) {
+      loadData()
+    }
+  }, [params, mounted])
 
-  if (isLoading) {
+  if (!mounted || isLoading) {
     return <LoadingScreen />
   }
 
@@ -75,9 +82,7 @@ export default function ProductPage({ params }: PageProps) {
 
   return (
     <div className="min-h-screen bg-slate-50">
-      {/* Hero Section with Lottie Animation */}
       <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white relative overflow-hidden">
-        {/* Lottie Animation Background */}
         <div className="absolute inset-0 opacity-10">
           <div className="absolute top-10 left-10 w-32 h-32 bg-white rounded-full animate-pulse"></div>
           <div className="absolute top-20 right-20 w-24 h-24 bg-emerald-300 rounded-full animate-bounce"></div>
@@ -121,45 +126,35 @@ export default function ProductPage({ params }: PageProps) {
       <div className="container mx-auto px-6 py-10">
         <div className="grid lg:grid-cols-3 gap-10">
           <div className="lg:col-span-2 space-y-10">
-            {/* Instructor Hero Card */}
             {instructorSection && instructorSection.values.length > 0 && (
               <InstructorHeroCard instructor={instructorSection.values[0] as Instructor} lang={lang} />
             )}
 
-            {/* Course Banner */}
             <CourseBanner lang={lang} />
 
-            {/* What You'll Learn */}
             {pointersSection && pointersSection.values.length > 0 && (
               <WhatYouLearn pointers={pointersSection.values as Pointer[]} lang={lang} />
             )}
 
-            {/* Course Features */}
             {featuresSection && featuresSection.values.length > 0 && (
               <CourseFeatures features={featuresSection.values as Feature[]} lang={lang} />
             )}
 
-            {/* Content Preview */}
             <ContentPreview media={product.media} lang={lang} />
 
-            {/* Exclusive Features */}
             <ExclusiveFeatures lang={lang} />
 
-            {/* Course Details */}
             {aboutSection && aboutSection.values.length > 0 && (
               <CourseDetails aboutItems={aboutSection.values as AboutItem[]} lang={lang} />
             )}
 
-            {/* Reviews Section */}
             {testimonialsSection && testimonialsSection.values.length > 0 && (
               <ReviewsSection testimonials={testimonialsSection.values as Testimonial[]} lang={lang} />
             )}
 
-            {/* FAQ Section */}
             {faqSection && faqSection.values.length > 0 && <FAQSection faqs={faqSection.values as FAQ[]} lang={lang} />}
           </div>
 
-          {/* Sidebar - Proper sticky positioning */}
           <div className="lg:sticky lg:top-20 lg:h-fit">
             <CourseSidebar
               ctaText={product.cta_text.name}

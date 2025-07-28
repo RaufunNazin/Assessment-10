@@ -8,7 +8,7 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['api.10minuteschool.com', 'img.youtube.com'],
+    domains: ['api.10minuteschool.com', 'img.youtube.com', 'cdn.10minuteschool.com'],
     remotePatterns: [
       {
         protocol: 'https',

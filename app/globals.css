@@ -30,6 +30,8 @@
 @layer base {
   * {
     @apply border-border;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
+      sans-serif;
   }
   body {
     @apply bg-background text-foreground;
@@ -182,9 +184,4 @@ html {
 
 .lg\:h-fit {
   height: fit-content;
-}
-
-* {
-  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto",
-    "Oxygen", "Ubuntu", "Cantarell", sans-serif;
 }

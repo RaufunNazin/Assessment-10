@@ -89,7 +89,7 @@ export function ExclusiveFeatures({ lang }: ExclusiveFeaturesProps) {
 
   return (
     <section className="bg-gradient-to-br from-emerald-50 to-white rounded-lg p-8 shadow-sm border border-emerald-100">
-      <div className="text-center mb-8 animate-in slide-in-from-top-1 duration-500">
+      <div className="text-center mb-8">
         <div className="flex items-center justify-center gap-3 mb-4">
           <Star className="w-6 h-6 text-emerald-600" />
           <h2 className="text-2xl font-bold text-slate-800">{t.title}</h2>
@@ -101,7 +101,7 @@ export function ExclusiveFeatures({ lang }: ExclusiveFeaturesProps) {
         {t.features.map((feature, index) => (
           <div
             key={index}
-            className="bg-white rounded-lg p-6 border border-slate-100 hover:border-emerald-200 hover:shadow-lg transition-all duration-300 animate-in slide-in-from-bottom-1 duration-500"
+            className="bg-white rounded-lg p-6 border border-slate-100 hover:border-emerald-200 hover:shadow-lg transition-all duration-300"
             style={{ animationDelay: `${index * 100}ms` }}
             onMouseEnter={() => setHoveredIndex(index)}
             onMouseLeave={() => setHoveredIndex(null)}

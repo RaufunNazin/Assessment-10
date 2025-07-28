@@ -33,7 +33,6 @@ export function ContentPreview({ media, lang }: ContentPreviewProps) {
 
   const t = texts[lang]
 
-  // Filter preview videos from media
   const previewVideos = media.filter((item) => item.name === "preview_gallery" && item.resource_type === "video")
 
   const mockLessons = [
@@ -46,21 +45,21 @@ export function ContentPreview({ media, lang }: ContentPreviewProps) {
     },
     {
       id: "2",
-      title: lang === "bn" ? "Reading Strategies" : "Reading Strategies",
+      title: lang === "bn" ? "রিডিং কৌশল" : "Reading Strategies",
       duration: "22:45",
       isFree: true,
       videoId: previewVideos[1]?.resource_value || "30y-wlDtIIQ",
     },
     {
       id: "3",
-      title: lang === "bn" ? "Writing Task 1 Overview" : "Writing Task 1 Overview",
+      title: lang === "bn" ? "রাইটিং টাস্ক ১ ওভারভিউ" : "Writing Task 1 Overview",
       duration: "18:20",
       isFree: false,
       videoId: previewVideos[2]?.resource_value || "QBz8FX4GE_w",
     },
     {
       id: "4",
-      title: lang === "bn" ? "Listening Techniques" : "Listening Techniques",
+      title: lang === "bn" ? "লিসেনিং কৌশল" : "Listening Techniques",
       duration: "25:10",
       isFree: false,
       videoId: previewVideos[3]?.resource_value || "AvB2ibYd1z4",
@@ -69,7 +68,7 @@ export function ContentPreview({ media, lang }: ContentPreviewProps) {
 
   return (
     <section className="bg-white rounded-lg p-8 shadow-sm border border-slate-200">
-      <div className="text-center mb-8 animate-in slide-in-from-top-1 duration-500">
+      <div className="text-center mb-8">
         <div className="flex items-center justify-center gap-3 mb-4">
           <Eye className="w-6 h-6 text-emerald-600" />
           <h2 className="text-2xl font-bold text-slate-800">{t.title}</h2>
@@ -78,7 +77,7 @@ export function ContentPreview({ media, lang }: ContentPreviewProps) {
       </div>
 
       {selectedVideo && (
-        <div className="mb-8 animate-in slide-in-from-top-2 duration-300">
+        <div className="mb-8">
           <div className="relative w-full aspect-video rounded-lg overflow-hidden bg-black">
             <iframe
               src={`https://www.youtube.com/embed/${selectedVideo}?autoplay=1`}
@@ -95,7 +94,7 @@ export function ContentPreview({ media, lang }: ContentPreviewProps) {
         {mockLessons.map((lesson, index) => (
           <div
             key={lesson.id}
-            className="border border-slate-200 rounded-lg p-4 hover:border-emerald-200 hover:shadow-md transition-all duration-300 animate-in slide-in-from-bottom-1 duration-500"
+            className="border border-slate-200 rounded-lg p-4 hover:border-emerald-200 hover:shadow-md transition-all duration-300"
             style={{ animationDelay: `${index * 100}ms` }}
           >
             <div className="flex items-start gap-4">

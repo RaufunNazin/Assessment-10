@@ -9,7 +9,7 @@ interface WhatsAppChatProps {
 export function WhatsAppChat({ lang }: WhatsAppChatProps) {
   return (
     <button
-      className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:scale-110 z-50"
+      className="fixed bottom-6 right-6 bg-green-500 hover:bg-green-600 text-white p-4 rounded-full shadow-lg transition-all duration-300 hover:shadow-xl z-50"
       onClick={(e) => e.preventDefault()}
       aria-label={lang === "bn" ? "হোয়াটসঅ্যাপে চ্যাট করুন" : "Chat on WhatsApp"}
     >

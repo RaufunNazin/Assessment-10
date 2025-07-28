@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import { useRouter, usePathname } from "next/navigation"
 
 interface LanguageSwitcherProps {
@@ -7,14 +8,29 @@ interface LanguageSwitcherProps {
 }
 
 export function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
+  const [mounted, setMounted] = useState(false)
   const router = useRouter()
   const pathname = usePathname()
+
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   const switchLanguage = (lang: "en" | "bn") => {
     if (lang === currentLang) return
 
     const newPath = pathname.replace(/^\/(en|bn)/, `/${lang}`)
     router.push(newPath)
+  }
+
+  if (!mounted) {
+    return (
+      <div className="flex items-center gap-2">
+        <span className="text-sm text-slate-600">EN</span>
+        <div className="w-12 h-6 bg-slate-200 rounded-full"></div>
+        <span className="text-sm text-slate-600">বাং</span>
+      </div>
+    )
   }
 
   return (

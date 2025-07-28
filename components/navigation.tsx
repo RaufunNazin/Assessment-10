@@ -43,16 +43,12 @@ const dropdownItems = {
 export function Navigation({ lang }: NavigationProps) {
   const [isMenuOpen, setIsMenuOpen] = useState(false)
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
+  const [mounted, setMounted] = useState(false)
   const dropdownRef = useRef<HTMLDivElement>(null)
-  const t = getTranslation(lang)
 
-  const menuItems = [
-    { label: t.nav.courses, href: `/${lang}/courses`, hasDropdown: true, key: "courses" },
-    { label: t.nav.skills, href: `/${lang}/skills`, hasDropdown: true, key: "skills" },
-    { label: t.nav.admissions, href: `/${lang}/admissions`, hasDropdown: false, key: "admissions" },
-    { label: t.nav.jobs, href: `/${lang}/jobs`, hasDropdown: false, key: "jobs" },
-    { label: t.nav.more, href: `/${lang}/more`, hasDropdown: true, key: "more" },
-  ]
+  useEffect(() => {
+    setMounted(true)
+  }, [])
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
@@ -65,10 +61,42 @@ export function Navigation({ lang }: NavigationProps) {
     return () => document.removeEventListener("mousedown", handleClickOutside)
   }, [])
 
+  if (!mounted) {
+    return (
+      <header className="bg-white border-b sticky top-0 z-50 shadow-sm">
+        <div className="container mx-auto px-4">
+          <div className="flex items-center justify-between py-4">
+            <div className="flex items-center gap-8">
+              <Link href={`/${lang}`} className="flex items-center gap-2">
+                <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
+                  <span className="text-white font-bold text-sm">10</span>
+                </div>
+                <span className="text-lg font-bold text-slate-800">10MS</span>
+              </Link>
+            </div>
+            <div className="flex items-center gap-4">
+              <div className="w-12 h-6 bg-slate-200 rounded-full"></div>
+              <div className="w-16 h-8 bg-emerald-500 rounded"></div>
+            </div>
+          </div>
+        </div>
+      </header>
+    )
+  }
+
+  const t = getTranslation(lang)
+
+  const menuItems = [
+    { label: t.nav.courses, href: `/${lang}/courses`, hasDropdown: true, key: "courses" },
+    { label: t.nav.skills, href: `/${lang}/skills`, hasDropdown: true, key: "skills" },
+    { label: t.nav.admissions, href: `/${lang}/admissions`, hasDropdown: false, key: "admissions" },
+    { label: t.nav.jobs, href: `/${lang}/jobs`, hasDropdown: false, key: "jobs" },
+    { label: t.nav.more, href: `/${lang}/more`, hasDropdown: true, key: "more" },
+  ]
+
   return (
     <header className="bg-white border-b sticky top-0 z-50 shadow-sm">
       <div className="container mx-auto px-4">
-        {/* Single Navigation Bar */}
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center gap-8">
             <Link href={`/${lang}`} className="flex items-center gap-2">
@@ -78,7 +106,6 @@ export function Navigation({ lang }: NavigationProps) {
               <span className="text-lg font-bold text-slate-800">10MS</span>
             </Link>
 
-            {/* Desktop Menu */}
             <nav className="hidden lg:flex items-center gap-6" ref={dropdownRef}>
               {menuItems.map((item) => (
                 <div
@@ -101,9 +128,8 @@ export function Navigation({ lang }: NavigationProps) {
                     )}
                   </button>
 
-                  {/* Dropdown Menu */}
                   {item.hasDropdown && activeDropdown === item.key && (
-                    <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-slate-200 py-2 animate-in slide-in-from-top-2 duration-200">
+                    <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-slate-200 py-2">
                       {dropdownItems[item.key as keyof typeof dropdownItems][lang]?.map((dropdownItem, index) => (
                         <button
                           key={index}
@@ -120,7 +146,6 @@ export function Navigation({ lang }: NavigationProps) {
             </nav>
           </div>
 
-          {/* Right Side */}
           <div className="flex items-center gap-4">
             <div className="hidden md:flex items-center bg-slate-100 rounded-lg px-3 py-2">
               <Search className="w-4 h-4 text-slate-400 mr-2" />
@@ -151,9 +176,8 @@ export function Navigation({ lang }: NavigationProps) {
           </div>
         </div>
 
-        {/* Mobile Menu */}
         {isMenuOpen && (
-          <div className="lg:hidden border-t border-slate-100 py-4 animate-in slide-in-from-top-2 duration-200">
+          <div className="lg:hidden border-t border-slate-100 py-4">
             <nav className="space-y-4">
               {menuItems.map((item) => (
                 <button

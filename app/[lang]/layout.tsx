@@ -37,12 +37,8 @@ export default async function RootLayout({
   const { lang } = await params
 
   return (
-    <html lang={lang}>
-      <head>
-        <meta charSet="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-      </head>
-      <body className={inter.className}>
+    <html lang={lang} suppressHydrationWarning>
+      <body className={inter.className} suppressHydrationWarning>
         <Navigation lang={lang} />
         <main>{children}</main>
         <Footer lang={lang} />

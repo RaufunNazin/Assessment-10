@@ -1,10 +1,9 @@
-import { NextResponse } from "next/server";
-import type { NextRequest } from "next/server";
+import { NextResponse } from "next/server"
+import type { NextRequest } from "next/server"
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname;
+  const pathname = request.nextUrl.pathname
 
-  // Skip if already has locale or is an internal path
   if (
     pathname.startsWith("/en") ||
     pathname.startsWith("/bn") ||
@@ -12,18 +11,16 @@ export function middleware(request: NextRequest) {
     pathname.startsWith("/api") ||
     pathname.includes(".")
   ) {
-    return NextResponse.next();
+    return NextResponse.next()
   }
 
-  // Redirect root to English by default
   if (pathname === "/") {
-    return NextResponse.redirect(new URL("/en", request.url));
+    return NextResponse.redirect(new URL("/en", request.url))
   }
 
-  // For other paths, add English locale
-  return NextResponse.redirect(new URL(`/en${pathname}`, request.url));
+  return NextResponse.redirect(new URL(`/en${pathname}`, request.url))
 }
 
 export const config = {
   matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
-};
+}

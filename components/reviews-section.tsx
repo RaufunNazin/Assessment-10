@@ -70,7 +70,7 @@ export function ReviewsSection({ testimonials, lang }: ReviewsSectionProps) {
 
   return (
     <section className="bg-white rounded-lg p-8 shadow-sm border border-slate-200">
-      <div className="text-center mb-8 animate-in slide-in-from-top-1 duration-500">
+      <div className="text-center mb-8">
         <h2 className="text-2xl font-bold text-slate-800 mb-4">{t.title}</h2>
         <p className="text-slate-600">{t.subtitle}</p>
       </div>
@@ -125,18 +125,13 @@ export function ReviewsSection({ testimonials, lang }: ReviewsSectionProps) {
             }`}
           >
             {currentReviews.map((review, index) => (
-              <div
-                key={review.id}
-                className="space-y-6 animate-in slide-in-from-bottom-2 duration-500"
-                style={{ animationDelay: `${index * 100}ms` }}
-              >
-                {/* Only show video if available */}
+              <div key={review.id} className="space-y-6" style={{ animationDelay: `${index * 100}ms` }}>
                 {review.video_url && review.thumb && (
                   <div className="relative aspect-video rounded-lg overflow-hidden bg-slate-200 group cursor-pointer hover:shadow-lg transition-all duration-300">
                     <img
                       src={review.thumb || "/placeholder.svg"}
                       alt="Review video"
-                      className="w-full h-full object-cover transition-transform duration-300 group-hover:scale-105"
+                      className="w-full h-full object-cover transition-transform duration-300"
                     />
                     <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center group-hover:bg-opacity-40 transition-all duration-300">
                       <div className="bg-white rounded-full p-4 transition-all duration-300 group-hover:shadow-xl">
@@ -148,7 +143,6 @@ export function ReviewsSection({ testimonials, lang }: ReviewsSectionProps) {
                   </div>
                 )}
 
-                {/* Review Content */}
                 <div className="flex items-start gap-4">
                   <img
                     src={review.profile_image || "/placeholder.svg"}
@@ -174,7 +168,7 @@ export function ReviewsSection({ testimonials, lang }: ReviewsSectionProps) {
                     </div>
                     <div className="text-slate-600 leading-relaxed">
                       {expandedReviews.has(review.id) ? (
-                        <div className="animate-in slide-in-from-top-1 duration-300">
+                        <div>
                           <p>{review.testimonial}</p>
                           <button
                             onClick={() => toggleExpanded(review.id)}
