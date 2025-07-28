@@ -1,45 +1,50 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Award } from "lucide-react"
-import type { Instructor } from "@/types/product"
+import { useState, useEffect } from "react";
+import { Award } from "lucide-react";
+import type { Instructor } from "@/types/product";
 
 interface InstructorHeroCardProps {
-  instructor: Instructor
-  lang: "en" | "bn"
+  instructor: Instructor;
+  lang: "en" | "bn";
 }
 
-export function InstructorHeroCard({ instructor, lang }: InstructorHeroCardProps) {
-  const [isHovered, setIsHovered] = useState(false)
-  const [mounted, setMounted] = useState(false)
+export function InstructorHeroCard({
+  instructor,
+  lang,
+}: InstructorHeroCardProps) {
+  const [isHovered, setIsHovered] = useState(false);
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   const parseQualifications = (htmlDescription: string) => {
     if (typeof window !== "undefined") {
-      const tempDiv = document.createElement("div")
-      tempDiv.innerHTML = htmlDescription
-      const text = tempDiv.textContent || tempDiv.innerText || ""
+      const tempDiv = document.createElement("div");
+      tempDiv.innerHTML = htmlDescription;
+      const text = tempDiv.textContent || tempDiv.innerText || "";
       return text
         .split(";")
         .filter((qual) => qual.trim().length > 0)
-        .slice(0, 2)
+        .slice(0, 2);
     }
     return htmlDescription
       .replace(/<[^>]*>/g, "")
       .split(";")
       .filter((qual) => qual.trim().length > 0)
-      .slice(0, 2)
-  }
+      .slice(0, 2);
+  };
 
   if (!mounted) {
     return (
       <section className="bg-white rounded-lg p-6 shadow-sm border border-slate-200">
         <div className="flex items-center gap-2 mb-4">
           <Award className="w-5 h-5 text-emerald-600" />
-          <h2 className="text-xl font-bold text-slate-800">{lang === "bn" ? "আপনার ইন্সট্রাক্টর" : "Your Instructor"}</h2>
+          <h2 className="text-xl font-bold text-slate-800">
+            {lang === "bn" ? "আপনার ইন্সট্রাক্টর" : "Your Instructor"}
+          </h2>
         </div>
         <div className="flex items-center gap-6">
           <div className="w-20 h-20 bg-slate-200 rounded-xl animate-pulse"></div>
@@ -50,17 +55,21 @@ export function InstructorHeroCard({ instructor, lang }: InstructorHeroCardProps
           </div>
         </div>
       </section>
-    )
+    );
   }
 
-  const qualifications = parseQualifications(instructor.description)
-  const ieltsScore = instructor.description.includes("IELTS: 8.5") ? "8.5" : "8.5"
+  const qualifications = parseQualifications(instructor.description);
+  const ieltsScore = instructor.description.includes("IELTS: 8.5")
+    ? "8.5"
+    : "8.5";
 
   return (
     <section className="bg-white rounded-lg p-6 shadow-sm border border-slate-200">
       <div className="flex items-center gap-2 mb-4">
         <Award className="w-5 h-5 text-emerald-600" />
-        <h2 className="text-xl font-bold text-slate-800">{lang === "bn" ? "আপনার ইন্সট্রাক্টর" : "Your Instructor"}</h2>
+        <h2 className="text-xl font-bold text-slate-800">
+          {lang === "bn" ? "আপনার ইন্সট্রাক্টর" : "Your Instructor"}
+        </h2>
       </div>
 
       <div
@@ -115,5 +124,5 @@ export function InstructorHeroCard({ instructor, lang }: InstructorHeroCardProps
         </div>
       </div>
     </section>
-  )
+  );
 }

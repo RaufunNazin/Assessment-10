@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useState, useRef, useEffect } from "react"
-import Link from "next/link"
-import { Menu, X, ChevronDown, Search } from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { LanguageSwitcher } from "@/components/language-switcher"
-import { getTranslation } from "@/lib/localization"
+import { useState, useRef, useEffect } from "react";
+import Link from "next/link";
+import { Menu, X, ChevronDown, Search } from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { LanguageSwitcher } from "@/components/language-switcher";
+import { getTranslation } from "@/lib/localization";
 
 interface NavigationProps {
-  lang: "en" | "bn"
+  lang: "en" | "bn";
 }
 
 const dropdownItems = {
@@ -21,7 +21,14 @@ const dropdownItems = {
       "Academic Writing",
       "Business English",
     ],
-    bn: ["IELTS কোর্স", "স্পোকেন ইংলিশ", "ইমেইল মার্কেটিং", "কমপ্লিট গ্রামার", "একাডেমিক রাইটিং", "বিজনেস ইংলিশ"],
+    bn: [
+      "IELTS কোর্স",
+      "স্পোকেন ইংলিশ",
+      "ইমেইল মার্কেটিং",
+      "কমপ্লিট গ্রামার",
+      "একাডেমিক রাইটিং",
+      "বিজনেস ইংলিশ",
+    ],
   },
   skills: {
     en: [
@@ -32,34 +39,58 @@ const dropdownItems = {
       "Data Science",
       "Mobile App Development",
     ],
-    bn: ["প্রোগ্রামিং", "ওয়েব ডেভেলপমেন্ট", "ডিজিটাল মার্কেটিং", "গ্রাফিক ডিজাইন", "ডেটা সাইন্স", "মোবাইল অ্যাপ ডেভেলপমেন্ট"],
+    bn: [
+      "প্রোগ্রামিং",
+      "ওয়েব ডেভেলপমেন্ট",
+      "ডিজিটাল মার্কেটিং",
+      "গ্রাফিক ডিজাইন",
+      "ডেটা সাইন্স",
+      "মোবাইল অ্যাপ ডেভেলপমেন্ট",
+    ],
   },
   more: {
-    en: ["About Us", "Blog", "Success Stories", "Help Center", "Contact", "Community"],
-    bn: ["আমাদের সম্পর্কে", "ব্লগ", "সাফল্যের গল্প", "হেল্প সেন্টার", "যোগাযোগ", "কমিউনিটি"],
+    en: [
+      "About Us",
+      "Blog",
+      "Success Stories",
+      "Help Center",
+      "Contact",
+      "Community",
+    ],
+    bn: [
+      "আমাদের সম্পর্কে",
+      "ব্লগ",
+      "সাফল্যের গল্প",
+      "হেল্প সেন্টার",
+      "যোগাযোগ",
+      "কমিউনিটি",
+    ],
   },
-}
+};
 
 export function Navigation({ lang }: NavigationProps) {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [activeDropdown, setActiveDropdown] = useState<string | null>(null)
-  const [mounted, setMounted] = useState(false)
-  const dropdownRef = useRef<HTMLDivElement>(null)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
+  const [mounted, setMounted] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
-        setActiveDropdown(null)
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setActiveDropdown(null);
       }
-    }
+    };
 
-    document.addEventListener("mousedown", handleClickOutside)
-    return () => document.removeEventListener("mousedown", handleClickOutside)
-  }, [])
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, []);
 
   if (!mounted) {
     return (
@@ -68,10 +99,7 @@ export function Navigation({ lang }: NavigationProps) {
           <div className="flex items-center justify-between py-4">
             <div className="flex items-center gap-8">
               <Link href={`/${lang}`} className="flex items-center gap-2">
-                <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-sm">10</span>
-                </div>
-                <span className="text-lg font-bold text-slate-800">10MS</span>
+                <img src="/images/logo.svg" alt="Logo" className="h-10" />
               </Link>
             </div>
             <div className="flex items-center gap-4">
@@ -81,18 +109,43 @@ export function Navigation({ lang }: NavigationProps) {
           </div>
         </div>
       </header>
-    )
+    );
   }
 
-  const t = getTranslation(lang)
+  const t = getTranslation(lang);
 
   const menuItems = [
-    { label: t.nav.courses, href: `/${lang}/courses`, hasDropdown: true, key: "courses" },
-    { label: t.nav.skills, href: `/${lang}/skills`, hasDropdown: true, key: "skills" },
-    { label: t.nav.admissions, href: `/${lang}/admissions`, hasDropdown: false, key: "admissions" },
-    { label: t.nav.jobs, href: `/${lang}/jobs`, hasDropdown: false, key: "jobs" },
-    { label: t.nav.more, href: `/${lang}/more`, hasDropdown: true, key: "more" },
-  ]
+    {
+      label: t.nav.courses,
+      href: `/${lang}/courses`,
+      hasDropdown: true,
+      key: "courses",
+    },
+    {
+      label: t.nav.skills,
+      href: `/${lang}/skills`,
+      hasDropdown: true,
+      key: "skills",
+    },
+    {
+      label: t.nav.admissions,
+      href: `/${lang}/admissions`,
+      hasDropdown: false,
+      key: "admissions",
+    },
+    {
+      label: t.nav.jobs,
+      href: `/${lang}/jobs`,
+      hasDropdown: false,
+      key: "jobs",
+    },
+    {
+      label: t.nav.more,
+      href: `/${lang}/more`,
+      hasDropdown: true,
+      key: "more",
+    },
+  ];
 
   return (
     <header className="bg-white border-b sticky top-0 z-50 shadow-sm">
@@ -100,18 +153,20 @@ export function Navigation({ lang }: NavigationProps) {
         <div className="flex items-center justify-between py-4">
           <div className="flex items-center gap-8">
             <Link href={`/${lang}`} className="flex items-center gap-2">
-              <div className="w-8 h-8 bg-emerald-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-sm">10</span>
-              </div>
-              <span className="text-lg font-bold text-slate-800">10MS</span>
+              <img src="/images/logo.svg" alt="Logo" className="h-6" />
             </Link>
 
-            <nav className="hidden lg:flex items-center gap-6" ref={dropdownRef}>
+            <nav
+              className="hidden lg:flex items-center gap-6"
+              ref={dropdownRef}
+            >
               {menuItems.map((item) => (
                 <div
                   key={item.label}
                   className="relative"
-                  onMouseEnter={() => item.hasDropdown && setActiveDropdown(item.key)}
+                  onMouseEnter={() =>
+                    item.hasDropdown && setActiveDropdown(item.key)
+                  }
                   onMouseLeave={() => setActiveDropdown(null)}
                 >
                   <button
@@ -130,7 +185,9 @@ export function Navigation({ lang }: NavigationProps) {
 
                   {item.hasDropdown && activeDropdown === item.key && (
                     <div className="absolute top-full left-0 mt-1 w-56 bg-white rounded-lg shadow-lg border border-slate-200 py-2">
-                      {dropdownItems[item.key as keyof typeof dropdownItems][lang]?.map((dropdownItem, index) => (
+                      {dropdownItems[item.key as keyof typeof dropdownItems][
+                        lang
+                      ]?.map((dropdownItem, index) => (
                         <button
                           key={index}
                           onClick={(e) => e.preventDefault()}
@@ -151,7 +208,9 @@ export function Navigation({ lang }: NavigationProps) {
               <Search className="w-4 h-4 text-slate-400 mr-2" />
               <input
                 type="text"
-                placeholder={lang === "bn" ? "কোর্স খুঁজুন..." : "Search courses..."}
+                placeholder={
+                  lang === "bn" ? "কোর্স খুঁজুন..." : "Search courses..."
+                }
                 className="bg-transparent outline-none text-sm w-48 text-slate-700 placeholder-slate-500"
               />
             </div>
@@ -171,7 +230,11 @@ export function Navigation({ lang }: NavigationProps) {
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
             >
-              {isMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              {isMenuOpen ? (
+                <X className="w-6 h-6" />
+              ) : (
+                <Menu className="w-6 h-6" />
+              )}
             </button>
           </div>
         </div>
@@ -193,5 +256,5 @@ export function Navigation({ lang }: NavigationProps) {
         )}
       </div>
     </header>
-  )
+  );
 }

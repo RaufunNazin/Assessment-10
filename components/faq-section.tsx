@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react"
-import type { FAQ } from "@/types/product"
+import { useState } from "react";
+import { ChevronDown, ChevronUp, HelpCircle } from "lucide-react";
+import type { FAQ } from "@/types/product";
 
 interface FAQSectionProps {
-  faqs: FAQ[]
-  lang: "en" | "bn"
+  faqs: FAQ[];
+  lang: "en" | "bn";
 }
 
 export function FAQSection({ faqs, lang }: FAQSectionProps) {
-  const [openIndex, setOpenIndex] = useState<number | null>(null)
+  const [openIndex, setOpenIndex] = useState<number | null>(null);
 
   const toggleFAQ = (index: number) => {
-    setOpenIndex(openIndex === index ? null : index)
-  }
+    setOpenIndex(openIndex === index ? null : index);
+  };
 
   return (
     <section className="bg-white rounded-lg p-8 shadow-sm border border-slate-200">
@@ -35,7 +35,9 @@ export function FAQSection({ faqs, lang }: FAQSectionProps) {
               className="w-full p-4 text-left flex items-center justify-between hover:bg-slate-50 transition-colors duration-200"
               onClick={() => toggleFAQ(index)}
             >
-              <span className="font-medium text-slate-800 pr-4">{faq.question}</span>
+              <span className="font-medium text-slate-800 pr-4">
+                {faq.question}
+              </span>
               <div className="flex-shrink-0">
                 {openIndex === index ? (
                   <ChevronUp className="w-5 h-5 text-emerald-600 transition-transform duration-200" />
@@ -46,7 +48,9 @@ export function FAQSection({ faqs, lang }: FAQSectionProps) {
             </button>
             <div
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openIndex === index ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                openIndex === index
+                  ? "max-h-96 opacity-100"
+                  : "max-h-0 opacity-0"
               }`}
             >
               <div className="px-4 pb-4 border-t border-slate-100">
@@ -60,5 +64,5 @@ export function FAQSection({ faqs, lang }: FAQSectionProps) {
         ))}
       </div>
     </section>
-  )
+  );
 }

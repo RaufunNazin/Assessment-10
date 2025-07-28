@@ -1,14 +1,14 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Star, Award, Users, Clock, Video, FileText } from "lucide-react"
+import { useState } from "react";
+import { Star, Award, Users, Clock, Video, FileText } from "lucide-react";
 
 interface ExclusiveFeaturesProps {
-  lang: "en" | "bn"
+  lang: "en" | "bn";
 }
 
 export function ExclusiveFeatures({ lang }: ExclusiveFeaturesProps) {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   const texts = {
     en: {
@@ -83,9 +83,9 @@ export function ExclusiveFeatures({ lang }: ExclusiveFeaturesProps) {
         },
       ],
     },
-  }
+  };
 
-  const t = texts[lang]
+  const t = texts[lang];
 
   return (
     <section className="bg-gradient-to-br from-emerald-50 to-white rounded-lg p-8 shadow-sm border border-emerald-100">
@@ -109,7 +109,9 @@ export function ExclusiveFeatures({ lang }: ExclusiveFeaturesProps) {
             <div className="flex flex-col items-center text-center">
               <div
                 className={`p-4 rounded-full mb-4 transition-all duration-300 ${
-                  hoveredIndex === index ? "bg-emerald-500 shadow-lg" : "bg-emerald-100"
+                  hoveredIndex === index
+                    ? "bg-emerald-500 shadow-lg"
+                    : "bg-emerald-100"
                 }`}
               >
                 <feature.icon
@@ -125,11 +127,13 @@ export function ExclusiveFeatures({ lang }: ExclusiveFeaturesProps) {
               >
                 {feature.title}
               </h3>
-              <p className="text-sm text-slate-600 leading-relaxed">{feature.description}</p>
+              <p className="text-sm text-slate-600 leading-relaxed">
+                {feature.description}
+              </p>
             </div>
           </div>
         ))}
       </div>
     </section>
-  )
+  );
 }

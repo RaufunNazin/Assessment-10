@@ -1,7 +1,7 @@
-import type { Instructor } from "@/types/product"
+import type { Instructor } from "@/types/product";
 
 interface InstructorCardProps {
-  instructor: Instructor
+  instructor: Instructor;
 }
 
 export function InstructorCard({ instructor }: InstructorCardProps) {
@@ -14,7 +14,9 @@ export function InstructorCard({ instructor }: InstructorCardProps) {
           className="w-16 h-16 rounded-full object-cover"
         />
         <div className="flex-1">
-          <h3 className="text-lg font-semibold text-gray-900">{instructor.name}</h3>
+          <h3 className="text-lg font-semibold text-gray-900">
+            {instructor.name}
+          </h3>
           <p className="text-sm text-gray-600 mb-2">{instructor.title}</p>
           {instructor.credentials && (
             <div className="space-y-1">
@@ -28,5 +30,5 @@ export function InstructorCard({ instructor }: InstructorCardProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }

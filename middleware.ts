@@ -1,8 +1,8 @@
-import { NextResponse } from "next/server"
-import type { NextRequest } from "next/server"
+import { NextResponse } from "next/server";
+import type { NextRequest } from "next/server";
 
 export function middleware(request: NextRequest) {
-  const pathname = request.nextUrl.pathname
+  const pathname = request.nextUrl.pathname;
 
   if (
     pathname.startsWith("/en") ||
@@ -11,16 +11,16 @@ export function middleware(request: NextRequest) {
     pathname.startsWith("/api") ||
     pathname.includes(".")
   ) {
-    return NextResponse.next()
+    return NextResponse.next();
   }
 
   if (pathname === "/") {
-    return NextResponse.redirect(new URL("/en", request.url))
+    return NextResponse.redirect(new URL("/en", request.url));
   }
 
-  return NextResponse.redirect(new URL(`/en${pathname}`, request.url))
+  return NextResponse.redirect(new URL(`/en${pathname}`, request.url));
 }
 
 export const config = {
   matcher: ["/((?!_next/static|_next/image|favicon.ico).*)"],
-}
+};

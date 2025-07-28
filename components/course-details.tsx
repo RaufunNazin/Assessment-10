@@ -1,11 +1,11 @@
-"use client"
+"use client";
 
-import { BookOpen } from "lucide-react"
-import type { AboutItem } from "@/types/product"
+import { BookOpen } from "lucide-react";
+import type { AboutItem } from "@/types/product";
 
 interface CourseDetailsProps {
-  aboutItems: AboutItem[]
-  lang: "en" | "bn"
+  aboutItems: AboutItem[];
+  lang: "en" | "bn";
 }
 
 export function CourseDetails({ aboutItems, lang }: CourseDetailsProps) {
@@ -21,7 +21,10 @@ export function CourseDetails({ aboutItems, lang }: CourseDetailsProps) {
       <div className="space-y-8">
         {aboutItems.map((item) => (
           <div key={item.id}>
-            <div className="mb-4" dangerouslySetInnerHTML={{ __html: item.title }} />
+            <div
+              className="mb-4"
+              dangerouslySetInnerHTML={{ __html: item.title }}
+            />
             <div
               className="prose max-w-none text-slate-700 leading-relaxed"
               dangerouslySetInnerHTML={{ __html: item.description }}
@@ -30,5 +33,5 @@ export function CourseDetails({ aboutItems, lang }: CourseDetailsProps) {
         ))}
       </div>
     </section>
-  )
+  );
 }

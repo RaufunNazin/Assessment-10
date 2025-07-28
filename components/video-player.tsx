@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Play } from "lucide-react"
+import { useState } from "react";
+import { Play } from "lucide-react";
 
 interface VideoPlayerProps {
-  videoId: string
-  thumbnail?: string
-  title?: string
+  videoId: string;
+  thumbnail?: string;
+  title?: string;
 }
 
 export function VideoPlayer({ videoId, thumbnail, title }: VideoPlayerProps) {
-  const [isPlaying, setIsPlaying] = useState(false)
+  const [isPlaying, setIsPlaying] = useState(false);
 
   const getYouTubeEmbedUrl = (id: string) => {
-    return `https://www.youtube.com/embed/${id}?autoplay=1`
-  }
+    return `https://www.youtube.com/embed/${id}?autoplay=1`;
+  };
 
   if (isPlaying) {
     return (
@@ -27,7 +27,7 @@ export function VideoPlayer({ videoId, thumbnail, title }: VideoPlayerProps) {
           allowFullScreen
         />
       </div>
-    )
+    );
   }
 
   return (
@@ -36,12 +36,15 @@ export function VideoPlayer({ videoId, thumbnail, title }: VideoPlayerProps) {
       onClick={() => setIsPlaying(true)}
     >
       <img
-        src={thumbnail || "/placeholder.svg?height=400&width=600&query=video thumbnail"}
+        src={
+          thumbnail ||
+          "/placeholder.svg?height=400&width=600&query=video thumbnail"
+        }
         alt={title || "Video thumbnail"}
         className="w-full h-full object-cover"
         onError={(e) => {
-          const target = e.target as HTMLImageElement
-          target.src = "/placeholder.svg?height=400&width=600"
+          const target = e.target as HTMLImageElement;
+          target.src = "/placeholder.svg?height=400&width=600";
         }}
       />
       <div className="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center group-hover:bg-opacity-40 transition-all">
@@ -50,5 +53,5 @@ export function VideoPlayer({ videoId, thumbnail, title }: VideoPlayerProps) {
         </div>
       </div>
     </div>
-  )
+  );
 }

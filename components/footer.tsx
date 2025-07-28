@@ -1,19 +1,27 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { Facebook, Youtube, Instagram, Twitter, Phone, Mail, MapPin } from "lucide-react"
-import { getTranslation } from "@/lib/localization"
+import { useState, useEffect } from "react";
+import {
+  Facebook,
+  Youtube,
+  Instagram,
+  Twitter,
+  Phone,
+  Mail,
+  MapPin,
+} from "lucide-react";
+import { getTranslation } from "@/lib/localization";
 
 interface FooterProps {
-  lang: "en" | "bn"
+  lang: "en" | "bn";
 }
 
 export function Footer({ lang }: FooterProps) {
-  const [mounted, setMounted] = useState(false)
+  const [mounted, setMounted] = useState(false);
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   if (!mounted) {
     return (
@@ -21,12 +29,7 @@ export function Footer({ lang }: FooterProps) {
         <div className="container mx-auto px-4 py-12">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
             <div className="lg:col-span-1">
-              <div className="flex items-center gap-2 mb-4">
-                <div className="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center">
-                  <span className="text-white font-bold text-lg">10</span>
-                </div>
-                <span className="text-xl font-bold text-slate-800">Minute School</span>
-              </div>
+              <img src="/images/logo.svg" alt="Logo" className="h-10 mb-4" />
               <div className="h-4 bg-slate-200 rounded animate-pulse mb-6"></div>
               <div className="space-y-3">
                 <div className="h-4 bg-slate-200 rounded animate-pulse w-32"></div>
@@ -41,7 +44,10 @@ export function Footer({ lang }: FooterProps) {
                 <div className="h-6 bg-slate-200 rounded animate-pulse mb-4 w-24"></div>
                 <div className="space-y-2">
                   {[...Array(5)].map((_, j) => (
-                    <div key={j} className="h-4 bg-slate-200 rounded animate-pulse"></div>
+                    <div
+                      key={j}
+                      className="h-4 bg-slate-200 rounded animate-pulse"
+                    ></div>
                   ))}
                 </div>
               </div>
@@ -49,23 +55,20 @@ export function Footer({ lang }: FooterProps) {
           </div>
         </div>
       </footer>
-    )
+    );
   }
 
-  const t = getTranslation(lang)
+  const t = getTranslation(lang);
 
   return (
     <footer className="bg-white border-t border-slate-200">
       <div className="container mx-auto px-4 py-12">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-8">
           <div className="lg:col-span-1">
-            <div className="flex items-center gap-2 mb-4">
-              <div className="w-10 h-10 bg-emerald-500 rounded-lg flex items-center justify-center">
-                <span className="text-white font-bold text-lg">10</span>
-              </div>
-              <span className="text-xl font-bold text-slate-800">Minute School</span>
-            </div>
-            <p className="text-slate-600 text-sm mb-6">{t.footer.social.description}</p>
+            <img src="/images/logo.svg" alt="Logo" className="h-10 mb-4" />
+            <p className="text-slate-600 text-sm mb-6">
+              {t.footer.social.description}
+            </p>
 
             <div className="space-y-3">
               <p className="text-sm font-semibold text-slate-800">
@@ -81,7 +84,7 @@ export function Footer({ lang }: FooterProps) {
                   <img
                     src="/images/google-play-badge.png"
                     alt="Get it on Google Play"
-                    className="h-10 w-auto hover:opacity-80 transition-opacity"
+                    className="h-8 w-auto hover:opacity-80 transition-opacity"
                   />
                 </a>
                 <a
@@ -93,7 +96,7 @@ export function Footer({ lang }: FooterProps) {
                   <img
                     src="/images/app-store-badge.png"
                     alt="Download on the App Store"
-                    className="h-10 w-auto hover:opacity-80 transition-opacity"
+                    className="h-8 w-auto hover:opacity-80 transition-opacity"
                   />
                 </a>
               </div>
@@ -101,7 +104,9 @@ export function Footer({ lang }: FooterProps) {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-slate-800">{t.footer.company.title}</h3>
+            <h3 className="font-semibold mb-4 text-slate-800">
+              {t.footer.company.title}
+            </h3>
             <ul className="space-y-2">
               {t.footer.company.links.map((link, index) => (
                 <li key={index}>
@@ -117,7 +122,9 @@ export function Footer({ lang }: FooterProps) {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-slate-800">{t.footer.courses.title}</h3>
+            <h3 className="font-semibold mb-4 text-slate-800">
+              {t.footer.courses.title}
+            </h3>
             <ul className="space-y-2">
               {t.footer.courses.links.map((link, index) => (
                 <li key={index}>
@@ -133,7 +140,9 @@ export function Footer({ lang }: FooterProps) {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-slate-800">{t.footer.support.title}</h3>
+            <h3 className="font-semibold mb-4 text-slate-800">
+              {t.footer.support.title}
+            </h3>
             <ul className="space-y-2">
               {t.footer.support.links.map((link, index) => (
                 <li key={index}>
@@ -149,7 +158,9 @@ export function Footer({ lang }: FooterProps) {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-slate-800">{t.footer.contact.title}</h3>
+            <h3 className="font-semibold mb-4 text-slate-800">
+              {t.footer.contact.title}
+            </h3>
             <div className="space-y-3 mb-6">
               <div className="flex items-center gap-2 text-sm">
                 <Phone className="w-4 h-4 text-emerald-600" />
@@ -161,12 +172,16 @@ export function Footer({ lang }: FooterProps) {
               </div>
               <div className="flex items-start gap-2 text-sm">
                 <MapPin className="w-4 h-4 text-emerald-600 mt-0.5" />
-                <span className="text-slate-600">{t.footer.contact.address}</span>
+                <span className="text-slate-600">
+                  {t.footer.contact.address}
+                </span>
               </div>
             </div>
 
             <div>
-              <h4 className="font-semibold mb-3 text-slate-800">{t.footer.social.title}</h4>
+              <h4 className="font-semibold mb-3 text-slate-800">
+                {t.footer.social.title}
+              </h4>
               <div className="flex gap-3">
                 <button
                   className="bg-blue-600 p-2 rounded-lg hover:bg-blue-700 transition-colors duration-200"
@@ -213,5 +228,5 @@ export function Footer({ lang }: FooterProps) {
         </div>
       </div>
     </footer>
-  )
+  );
 }

@@ -1,16 +1,16 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Play, Clock, Lock, Eye } from "lucide-react"
-import type { Medium } from "@/types/product"
+import { useState } from "react";
+import { Play, Clock, Lock, Eye } from "lucide-react";
+import type { Medium } from "@/types/product";
 
 interface ContentPreviewProps {
-  media: Medium[]
-  lang: "en" | "bn"
+  media: Medium[];
+  lang: "en" | "bn";
 }
 
 export function ContentPreview({ media, lang }: ContentPreviewProps) {
-  const [selectedVideo, setSelectedVideo] = useState<string | null>(null)
+  const [selectedVideo, setSelectedVideo] = useState<string | null>(null);
 
   const texts = {
     en: {
@@ -29,11 +29,13 @@ export function ContentPreview({ media, lang }: ContentPreviewProps) {
       free: "ফ্রি",
       premium: "প্রিমিয়াম",
     },
-  }
+  };
 
-  const t = texts[lang]
+  const t = texts[lang];
 
-  const previewVideos = media.filter((item) => item.name === "preview_gallery" && item.resource_type === "video")
+  const previewVideos = media.filter(
+    (item) => item.name === "preview_gallery" && item.resource_type === "video"
+  );
 
   const mockLessons = [
     {
@@ -52,7 +54,8 @@ export function ContentPreview({ media, lang }: ContentPreviewProps) {
     },
     {
       id: "3",
-      title: lang === "bn" ? "রাইটিং টাস্ক ১ ওভারভিউ" : "Writing Task 1 Overview",
+      title:
+        lang === "bn" ? "রাইটিং টাস্ক ১ ওভারভিউ" : "Writing Task 1 Overview",
       duration: "18:20",
       isFree: false,
       videoId: previewVideos[2]?.resource_value || "QBz8FX4GE_w",
@@ -64,7 +67,7 @@ export function ContentPreview({ media, lang }: ContentPreviewProps) {
       isFree: false,
       videoId: previewVideos[3]?.resource_value || "AvB2ibYd1z4",
     },
-  ]
+  ];
 
   return (
     <section className="bg-white rounded-lg p-8 shadow-sm border border-slate-200">
@@ -108,7 +111,9 @@ export function ContentPreview({ media, lang }: ContentPreviewProps) {
                 </div>
                 <span
                   className={`absolute -top-2 -right-2 px-2 py-1 text-xs font-medium rounded-full ${
-                    lesson.isFree ? "bg-emerald-100 text-emerald-700" : "bg-slate-100 text-slate-600"
+                    lesson.isFree
+                      ? "bg-emerald-100 text-emerald-700"
+                      : "bg-slate-100 text-slate-600"
                   }`}
                 >
                   {lesson.isFree ? t.free : t.premium}
@@ -116,7 +121,9 @@ export function ContentPreview({ media, lang }: ContentPreviewProps) {
               </div>
 
               <div className="flex-1 min-w-0">
-                <h3 className="font-medium text-slate-800 mb-2 line-clamp-2">{lesson.title}</h3>
+                <h3 className="font-medium text-slate-800 mb-2 line-clamp-2">
+                  {lesson.title}
+                </h3>
                 <div className="flex items-center gap-2 text-sm text-slate-500 mb-3">
                   <Clock className="w-4 h-4" />
                   <span>{lesson.duration}</span>
@@ -136,5 +143,5 @@ export function ContentPreview({ media, lang }: ContentPreviewProps) {
         ))}
       </div>
     </section>
-  )
+  );
 }

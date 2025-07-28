@@ -1,27 +1,27 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { useRouter, usePathname } from "next/navigation"
+import { useState, useEffect } from "react";
+import { useRouter, usePathname } from "next/navigation";
 
 interface LanguageSwitcherProps {
-  currentLang: "en" | "bn"
+  currentLang: "en" | "bn";
 }
 
 export function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
-  const [mounted, setMounted] = useState(false)
-  const router = useRouter()
-  const pathname = usePathname()
+  const [mounted, setMounted] = useState(false);
+  const router = useRouter();
+  const pathname = usePathname();
 
   useEffect(() => {
-    setMounted(true)
-  }, [])
+    setMounted(true);
+  }, []);
 
   const switchLanguage = (lang: "en" | "bn") => {
-    if (lang === currentLang) return
+    if (lang === currentLang) return;
 
-    const newPath = pathname.replace(/^\/(en|bn)/, `/${lang}`)
-    router.push(newPath)
-  }
+    const newPath = pathname.replace(/^\/(en|bn)/, `/${lang}`);
+    router.push(newPath);
+  };
 
   if (!mounted) {
     return (
@@ -30,7 +30,7 @@ export function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
         <div className="w-12 h-6 bg-slate-200 rounded-full"></div>
         <span className="text-sm text-slate-600">বাং</span>
       </div>
-    )
+    );
   }
 
   return (
@@ -57,5 +57,5 @@ export function LanguageSwitcher({ currentLang }: LanguageSwitcherProps) {
       </div>
       <span className="text-sm text-slate-600">বাং</span>
     </div>
-  )
+  );
 }

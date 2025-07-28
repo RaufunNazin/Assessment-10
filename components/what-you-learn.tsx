@@ -1,23 +1,25 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { Check, BookOpen } from "lucide-react"
-import type { Pointer } from "@/types/product"
+import { useState } from "react";
+import { Check, BookOpen } from "lucide-react";
+import type { Pointer } from "@/types/product";
 
 interface WhatYouLearnProps {
-  pointers: Pointer[]
-  lang: "en" | "bn"
+  pointers: Pointer[];
+  lang: "en" | "bn";
 }
 
 export function WhatYouLearn({ pointers, lang }: WhatYouLearnProps) {
-  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null)
+  const [hoveredIndex, setHoveredIndex] = useState<number | null>(null);
 
   return (
     <section className="bg-white rounded-lg p-8 shadow-sm border border-slate-200">
       <div className="flex items-center gap-3 mb-8">
         <BookOpen className="w-6 h-6 text-emerald-600" />
         <h2 className="text-2xl font-bold text-slate-800">
-          {lang === "bn" ? "কোর্সটি করে যা শিখবেন" : "What you will learn by doing the course"}
+          {lang === "bn"
+            ? "কোর্সটি করে যা শিখবেন"
+            : "What you will learn by doing the course"}
         </h2>
       </div>
 
@@ -41,5 +43,5 @@ export function WhatYouLearn({ pointers, lang }: WhatYouLearnProps) {
         ))}
       </div>
     </section>
-  )
+  );
 }

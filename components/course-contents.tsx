@@ -1,28 +1,34 @@
-"use client"
+"use client";
 
-import { useState } from "react"
-import { ChevronDown, ChevronUp, Play, FileText, Clock } from "lucide-react"
-import { AnimatedHeader } from "@/components/animated-header"
-import { getTranslation } from "@/lib/localization"
+import { useState } from "react";
+import { ChevronDown, ChevronUp, Play, FileText, Clock } from "lucide-react";
+import { AnimatedHeader } from "@/components/animated-header";
+import { getTranslation } from "@/lib/localization";
 
 interface CourseContentsProps {
-  lang: "en" | "bn"
+  lang: "en" | "bn";
 }
 
 export function CourseContents({ lang }: CourseContentsProps) {
-  const [openModules, setOpenModules] = useState<number[]>([0])
-  const [hoveredModule, setHoveredModule] = useState<number | null>(null)
-  const t = getTranslation(lang)
+  const [openModules, setOpenModules] = useState<number[]>([0]);
+  const [hoveredModule, setHoveredModule] = useState<number | null>(null);
+  const t = getTranslation(lang);
 
   const toggleModule = (index: number) => {
-    setOpenModules((prev) => (prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]))
-  }
+    setOpenModules((prev) =>
+      prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
+    );
+  };
 
   return (
     <section className="bg-white rounded-lg p-8 shadow-sm border border-slate-200">
       <AnimatedHeader
         title={lang === "bn" ? "কোর্স কন্টেন্ট" : "Course Contents"}
-        subtitle={lang === "bn" ? "বিস্তারিত সিলেবাস দেখুন" : "Explore the detailed curriculum"}
+        subtitle={
+          lang === "bn"
+            ? "বিস্তারিত সিলেবাস দেখুন"
+            : "Explore the detailed curriculum"
+        }
         icon={<Play className="w-6 h-6" />}
       />
 
@@ -30,15 +36,21 @@ export function CourseContents({ lang }: CourseContentsProps) {
         <div className="grid grid-cols-3 gap-4 text-center">
           <div className="transition-transform duration-300 hover:scale-105">
             <div className="text-2xl font-bold text-emerald-600">5</div>
-            <div className="text-sm text-slate-600">{lang === "bn" ? "সেকশন" : "Sections"}</div>
+            <div className="text-sm text-slate-600">
+              {lang === "bn" ? "সেকশন" : "Sections"}
+            </div>
           </div>
           <div className="transition-transform duration-300 hover:scale-105">
             <div className="text-2xl font-bold text-emerald-600">50+</div>
-            <div className="text-sm text-slate-600">{lang === "bn" ? "লেকচার" : "Lectures"}</div>
+            <div className="text-sm text-slate-600">
+              {lang === "bn" ? "লেকচার" : "Lectures"}
+            </div>
           </div>
           <div className="transition-transform duration-300 hover:scale-105">
             <div className="text-2xl font-bold text-emerald-600">20h</div>
-            <div className="text-sm text-slate-600">{lang === "bn" ? "মোট সময়" : "Total Duration"}</div>
+            <div className="text-sm text-slate-600">
+              {lang === "bn" ? "মোট সময়" : "Total Duration"}
+            </div>
           </div>
         </div>
       </div>
@@ -48,7 +60,9 @@ export function CourseContents({ lang }: CourseContentsProps) {
           <div
             key={index}
             className={`border border-slate-200 rounded-lg overflow-hidden transition-all duration-300 ${
-              hoveredModule === index ? "shadow-lg border-emerald-200" : "hover:shadow-md"
+              hoveredModule === index
+                ? "shadow-lg border-emerald-200"
+                : "hover:shadow-md"
             }`}
             onMouseEnter={() => setHoveredModule(index)}
             onMouseLeave={() => setHoveredModule(null)}
@@ -69,7 +83,9 @@ export function CourseContents({ lang }: CourseContentsProps) {
                 >
                   <span
                     className={`font-semibold transition-colors duration-300 ${
-                      hoveredModule === index ? "text-white" : "text-emerald-600"
+                      hoveredModule === index
+                        ? "text-white"
+                        : "text-emerald-600"
                     }`}
                   >
                     {index + 1}
@@ -78,25 +94,33 @@ export function CourseContents({ lang }: CourseContentsProps) {
                 <div>
                   <h3
                     className={`font-semibold text-lg transition-colors duration-300 ${
-                      hoveredModule === index ? "text-emerald-700" : "text-slate-800"
+                      hoveredModule === index
+                        ? "text-emerald-700"
+                        : "text-slate-800"
                     }`}
                   >
                     {module.title}
                   </h3>
-                  <p className="text-sm text-slate-500">{module.lessons.length} lessons</p>
+                  <p className="text-sm text-slate-500">
+                    {module.lessons.length} lessons
+                  </p>
                 </div>
               </div>
               <div className="flex items-center gap-2">
                 {openModules.includes(index) ? (
                   <ChevronUp
                     className={`w-5 h-5 transition-all duration-200 ${
-                      hoveredModule === index ? "text-emerald-600 scale-110" : "text-emerald-600"
+                      hoveredModule === index
+                        ? "text-emerald-600 scale-110"
+                        : "text-emerald-600"
                     }`}
                   />
                 ) : (
                   <ChevronDown
                     className={`w-5 h-5 transition-all duration-200 ${
-                      hoveredModule === index ? "text-emerald-600 scale-110" : "text-slate-500"
+                      hoveredModule === index
+                        ? "text-emerald-600 scale-110"
+                        : "text-slate-500"
                     }`}
                   />
                 )}
@@ -104,7 +128,9 @@ export function CourseContents({ lang }: CourseContentsProps) {
             </button>
             <div
               className={`overflow-hidden transition-all duration-300 ease-in-out ${
-                openModules.includes(index) ? "max-h-96 opacity-100" : "max-h-0 opacity-0"
+                openModules.includes(index)
+                  ? "max-h-96 opacity-100"
+                  : "max-h-0 opacity-0"
               }`}
             >
               <div className="px-6 pb-6 border-t border-slate-100">
@@ -134,5 +160,5 @@ export function CourseContents({ lang }: CourseContentsProps) {
         ))}
       </div>
     </section>
-  )
+  );
 }

@@ -1,9 +1,9 @@
-import { Check } from "lucide-react"
-import type { Checklist } from "@/types/product"
+import { Check } from "lucide-react";
+import type { Checklist } from "@/types/product";
 
 interface ChecklistSectionProps {
-  items: Checklist[]
-  title: string
+  items: Checklist[];
+  title: string;
 }
 
 export function ChecklistSection({ items, title }: ChecklistSectionProps) {
@@ -18,11 +18,13 @@ export function ChecklistSection({ items, title }: ChecklistSectionProps) {
             </div>
             <div>
               <p className="text-gray-700">{item.title}</p>
-              {item.description && <p className="text-sm text-gray-500 mt-1">{item.description}</p>}
+              {item.description && (
+                <p className="text-sm text-gray-500 mt-1">{item.description}</p>
+              )}
             </div>
           </div>
         ))}
       </div>
     </div>
-  )
+  );
 }

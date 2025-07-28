@@ -30,8 +30,8 @@
 @layer base {
   * {
     @apply border-border;
-    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell",
-      sans-serif;
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI",
+      "Roboto", "Oxygen", "Ubuntu", "Cantarell", sans-serif;
   }
   body {
     @apply bg-background text-foreground;
@@ -165,13 +165,6 @@ html {
 
 .animate-spin {
   animation: spin 1s linear infinite;
-}
-
-.bg-yellow-400,
-.text-yellow-400,
-.fill-yellow-400,
-.border-yellow-400 {
-  @apply bg-emerald-400 text-emerald-400 fill-emerald-400 border-emerald-400;
 }
 
 .lg\:sticky {

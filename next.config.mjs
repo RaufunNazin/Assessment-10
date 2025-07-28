@@ -1,6 +1,6 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'standalone',
+  output: "standalone",
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -8,11 +8,15 @@ const nextConfig = {
     ignoreBuildErrors: true,
   },
   images: {
-    domains: ['api.10minuteschool.com', 'img.youtube.com', 'cdn.10minuteschool.com'],
+    domains: [
+      "api.10minuteschool.com",
+      "img.youtube.com",
+      "cdn.10minuteschool.com",
+    ],
     remotePatterns: [
       {
-        protocol: 'https',
-        hostname: '**',
+        protocol: "https",
+        hostname: "**",
       },
     ],
     unoptimized: true,
@@ -20,8 +24,8 @@ const nextConfig = {
   async rewrites() {
     return [
       {
-        source: '/',
-        destination: '/en',
+        source: "/",
+        destination: "/en",
       },
     ];
   },

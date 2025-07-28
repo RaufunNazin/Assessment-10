@@ -21,7 +21,8 @@ export const translations = {
     banner: {
       freePdf: "Free PDF",
       title: "IELTS Confirm 7+ Score (Guideline)",
-      description: "Best strategies to achieve your target IELTS score with expert guidelines.",
+      description:
+        "Best strategies to achieve your target IELTS score with expert guidelines.",
       downloadBtn: "Download Free PDF",
     },
     // What You'll Learn
@@ -29,28 +30,37 @@ export const translations = {
       title: "What You'll Learn",
       points: [
         {
-          title: "Complete preparation and answering strategies for all IELTS sections",
-          description: "Master Reading, Writing, Listening, and Speaking with proven techniques.",
+          title:
+            "Complete preparation and answering strategies for all IELTS sections",
+          description:
+            "Master Reading, Writing, Listening, and Speaking with proven techniques.",
         },
         {
           title: "IELTS Writing Task 1 & 2 complete structure and essay types",
-          description: "Detailed writing strategies for both Academic and General Training modules.",
+          description:
+            "Detailed writing strategies for both Academic and General Training modules.",
         },
         {
-          title: "Advanced speaking techniques with power words and presentation skills",
-          description: "Learn to speak confidently in the IELTS Speaking test with advanced vocabulary.",
+          title:
+            "Advanced speaking techniques with power words and presentation skills",
+          description:
+            "Learn to speak confidently in the IELTS Speaking test with advanced vocabulary.",
         },
         {
-          title: "Time management strategies for achieving better scores during the exam",
-          description: "Master time management and exam strategies to reach your target score.",
+          title:
+            "Time management strategies for achieving better scores during the exam",
+          description:
+            "Master time management and exam strategies to reach your target score.",
         },
         {
           title: "Complete understanding of IELTS exam rules and regulations",
-          description: "Clear knowledge of all IELTS rules and marking criteria.",
+          description:
+            "Clear knowledge of all IELTS rules and marking criteria.",
         },
         {
           title: "Mock tests and practice experience for Reading and Listening",
-          description: "Real exam experience through practice tests with detailed feedback.",
+          description:
+            "Real exam experience through practice tests with detailed feedback.",
         },
       ],
     },
@@ -139,7 +149,8 @@ export const translations = {
             "This is a self-paced course with lifetime access. You can complete it according to your schedule, typically taking 2-3 months for thorough preparation.",
         },
         {
-          question: "Is this course suitable for both Academic and General Training IELTS?",
+          question:
+            "Is this course suitable for both Academic and General Training IELTS?",
           answer:
             "Yes, this course covers both Academic and General Training IELTS modules with specific strategies and practice materials for each.",
         },
@@ -150,7 +161,8 @@ export const translations = {
         },
         {
           question: "Can I access the course on mobile devices?",
-          answer: "The course is fully optimized for mobile devices and you can access it through our mobile app.",
+          answer:
+            "The course is fully optimized for mobile devices and you can access it through our mobile app.",
         },
         {
           question: "Is there any support available if I have questions?",
@@ -172,15 +184,32 @@ export const translations = {
       },
       courses: {
         title: "Courses",
-        links: ["IELTS", "Spoken English", "Email Marketing", "Complete Grammar", "Academic Writing"],
+        links: [
+          "IELTS",
+          "Spoken English",
+          "Email Marketing",
+          "Complete Grammar",
+          "Academic Writing",
+        ],
       },
       support: {
         title: "Support",
-        links: ["Help Center", "Community", "Live Chat", "FAQ", "Contact Support"],
+        links: [
+          "Help Center",
+          "Community",
+          "Live Chat",
+          "FAQ",
+          "Contact Support",
+        ],
       },
       legal: {
         title: "Legal",
-        links: ["Privacy Policy", "Terms of Service", "Cookie Policy", "Refund Policy"],
+        links: [
+          "Privacy Policy",
+          "Terms of Service",
+          "Cookie Policy",
+          "Refund Policy",
+        ],
       },
       contact: {
         title: "Contact Information",
@@ -192,7 +221,8 @@ export const translations = {
       social: {
         title: "Follow Us",
         copyright: "© 2024 10 Minute School. All rights reserved.",
-        description: "Bangladesh's largest online education platform with millions of students.",
+        description:
+          "Bangladesh's largest online education platform with millions of students.",
       },
     },
   },
@@ -218,7 +248,8 @@ export const translations = {
     banner: {
       freePdf: "ফ্রি PDF",
       title: "IELTS Confirm 7+ Score (Guideline)",
-      description: "IELTS আসার score করার সেরা Strategies আপনার সেবায় গাইডলাইনে।",
+      description:
+        "IELTS আসার score করার সেরা Strategies আপনার সেবায় গাইডলাইনে।",
       downloadBtn: "ফ্রি PDF Download করুন",
     },
     // What You'll Learn
@@ -226,29 +257,40 @@ export const translations = {
       title: "কোর্সটি করে যা শিখবেন",
       points: [
         {
-          title: "IELTS পরীক্ষার প্রতিটি সেকশনের সম্পূর্ণ প্রস্তুতি ও উত্তরের কৌশল",
-          description: "Reading, Writing, Listening এবং Speaking - চারটি সেকশনেই দক্ষতা অর্জন করুন।",
+          title:
+            "IELTS পরীক্ষার প্রতিটি সেকশনের সম্পূর্ণ প্রস্তুতি ও উত্তরের কৌশল",
+          description:
+            "Reading, Writing, Listening এবং Speaking - চারটি সেকশনেই দক্ষতা অর্জন করুন।",
         },
         {
-          title: "IELTS Writing Task 1 ও IELTS Writing Task 2 এর কেস স্টাডি কোর্স পেতে সম্পূর্ণ Structure ও Essay type",
-          description: "Academic ও General Training উভয় মডিউলের জন্য বিস্তারিত লেখার কৌশল।",
+          title:
+            "IELTS Writing Task 1 ও IELTS Writing Task 2 এর কেস স্টাডি কোর্স পেতে সম্পূর্ণ Structure ও Essay type",
+          description:
+            "Academic ও General Training উভয় মডিউলের জন্য বিস্তারিত লেখার কৌশল।",
         },
         {
-          title: "IELTS Speaking test-এ Advanced/Power Words ব্যবহার করে যেভাবে চমৎকার নিজেকে উপস্থাপন করা যায় বলার পদ্ধতি",
-          description: "Speaking পরীক্ষায় আত্মবিশ্বাসের সাথে উত্তর দেওয়ার কৌশল শিখুন।",
+          title:
+            "IELTS Speaking test-এ Advanced/Power Words ব্যবহার করে যেভাবে চমৎকার নিজেকে উপস্থাপন করা যায় বলার পদ্ধতি",
+          description:
+            "Speaking পরীক্ষায় আত্মবিশ্বাসের সাথে উত্তর দেওয়ার কৌশল শিখুন।",
         },
         {
-          title: "IELTS পরীক্ষা চলাকালীন বিশেষভাবে সময়ের সঠিক ব্যবহারের মাধ্যমে ভালো কোর্স অর্জনের কৌশল",
-          description: "Time management এবং exam strategy যা আপনাকে target score এ পৌঁছাতে সাহায্য করবে।",
+          title:
+            "IELTS পরীক্ষা চলাকালীন বিশেষভাবে সময়ের সঠিক ব্যবহারের মাধ্যমে ভালো কোর্স অর্জনের কৌশল",
+          description:
+            "Time management এবং exam strategy যা আপনাকে target score এ পৌঁছাতে সাহায্য করবে।",
         },
         {
-          title: "সেরা IELTS প্রস্তুতি দিতে প্রতিটি পরীক্ষার নিয়ম-আবদ্ধতা বিষয়ক নিয়মাবলী নিয়ে বিস্তারিত ধারণা",
-          description: "IELTS পরীক্ষার সকল নিয়মকানুন এবং marking criteria সম্পর্কে স্পষ্ট ধারণা।",
+          title:
+            "সেরা IELTS প্রস্তুতি দিতে প্রতিটি পরীক্ষার নিয়ম-আবদ্ধতা বিষয়ক নিয়মাবলী নিয়ে বিস্তারিত ধারণা",
+          description:
+            "IELTS পরীক্ষার সকল নিয়মকানুন এবং marking criteria সম্পর্কে স্পষ্ট ধারণা।",
         },
         {
           title:
             "IELTS Reading এবং IELTS Listening Mock Test এর মাধ্যমে IELTS পরীক্ষার বিভিন্ন এক্সপেরিয়েন্স ও Band Score সম্পর্কে পরিপূর্ণ ধারণা",
-          description: "Real exam experience এর মতো practice test এবং detailed feedback।",
+          description:
+            "Real exam experience এর মতো practice test এবং detailed feedback।",
         },
       ],
     },
@@ -343,15 +385,18 @@ export const translations = {
         },
         {
           question: "কোর্স শেষে কি সার্টিফিকেট পাবো?",
-          answer: "হ্যাঁ, কোর্সের সব মডিউল সম্পন্ন করার পর আপনি ১০ মিনিট স্কুলের পক্ষ থেকে একটি সার্টিফিকেট পাবেন।",
+          answer:
+            "হ্যাঁ, কোর্সের সব মডিউল সম্পন্ন করার পর আপনি ১০ মিনিট স্কুলের পক্ষ থেকে একটি সার্টিফিকেট পাবেন।",
         },
         {
           question: "মোবাইল দিয়ে কি কোর্সটি করা যাবে?",
-          answer: "অবশ্যই! কোর্সটি সম্পূর্ণভাবে মোবাইল ফ্রেন্ডলি এবং আমাদের মোবাইল অ্যাপের মাধ্যমেও এক্সেস করতে পারবেন।",
+          answer:
+            "অবশ্যই! কোর্সটি সম্পূর্ণভাবে মোবাইল ফ্রেন্ডলি এবং আমাদের মোবাইল অ্যাপের মাধ্যমেও এক্সেস করতে পারবেন।",
         },
         {
           question: "কোনো সমস্যা হলে সাপোর্ট পাবো?",
-          answer: "হ্যাঁ, আমাদের এক্সপার্ট সাপোর্ট টিম এবং ডিসকাশন ফোরামের মাধ্যমে যেকোনো সময় সাহায্য পেতে পারেন।",
+          answer:
+            "হ্যাঁ, আমাদের এক্সপার্ট সাপোর্ট টিম এবং ডিসকাশন ফোরামের মাধ্যমে যেকোনো সময় সাহায্য পেতে পারেন।",
         },
       ],
     },
@@ -368,15 +413,32 @@ export const translations = {
       },
       courses: {
         title: "কোর্সসমূহ",
-        links: ["IELTS", "স্পোকেন ইংলিশ", "ইমেইল মার্কেটিং", "কমপ্লিট গ্রামার", "একাডেমিক রাইটিং"],
+        links: [
+          "IELTS",
+          "স্পোকেন ইংলিশ",
+          "ইমেইল মার্কেটিং",
+          "কমপ্লিট গ্রামার",
+          "একাডেমিক রাইটিং",
+        ],
       },
       support: {
         title: "সাপোর্ট",
-        links: ["হেল্প সেন্টার", "কমিউনিটি", "লাইভ চ্যাট", "FAQ", "সাপোর্ট যোগাযোগ"],
+        links: [
+          "হেল্প সেন্টার",
+          "কমিউনিটি",
+          "লাইভ চ্যাট",
+          "FAQ",
+          "সাপোর্ট যোগাযোগ",
+        ],
       },
       legal: {
         title: "আইনি",
-        links: ["প্রাইভেসি পলিসি", "সার্ভিস শর্তাবলী", "কুকি পলিসি", "রিফান্ড পলিসি"],
+        links: [
+          "প্রাইভেসি পলিসি",
+          "সার্ভিস শর্তাবলী",
+          "কুকি পলিসি",
+          "রিফান্ড পলিসি",
+        ],
       },
       contact: {
         title: "যোগাযোগের তথ্য",
@@ -388,12 +450,13 @@ export const translations = {
       social: {
         title: "ফলো করুন",
         copyright: "© ২০২৪ ১০ মিনিট স্কুল। সকল অধিকার সংরক্ষিত।",
-        description: "বাংলাদেশের বৃহত্তম অনলাইন শিক্ষা প্ল্যাটফর্ম যেখানে লক্ষ লক্ষ শিক্ষার্থী।",
+        description:
+          "বাংলাদেশের বৃহত্তম অনলাইন শিক্ষা প্ল্যাটফর্ম যেখানে লক্ষ লক্ষ শিক্ষার্থী।",
       },
     },
   },
-}
+};
 
 export function getTranslation(lang: "en" | "bn") {
-  return translations[lang]
+  return translations[lang];
 }
